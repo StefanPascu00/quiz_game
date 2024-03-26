@@ -6,11 +6,17 @@ import time
 possible_answers = {0: 'a.', 1: 'b.', 2: 'c.', 3: 'd.'}
 
 
-def change_highscore():
-    pass
+def change_highscore(user: str, player: dict, score: int, path: str = "users.json"):
+    with open(path, "r") as f:
+        all_players = json.loads(f.read())
+    all_players.pop(user)
+    player[user]['high_score'] = score
+    all_players.update(player)
+    with open(path, "w") as f:
+        f.write(json.dumps(all_players, indent=4))
 
 
-def run_game(player: dict, questions_path: str = "questions.json") -> int:
+def run_game(user: str, player: dict, questions_path: str = "questions.json") -> int:
     score = 0
 
     with open(questions_path, "r") as f:
@@ -39,7 +45,7 @@ def run_game(player: dict, questions_path: str = "questions.json") -> int:
         copy_questions.remove(questions_object)
 
     print(f"You have answer to {score} questions corectly.")
-    if score > list(player.keys())[0]['high_score']:
-        change_highscore()
+    if score > player[user]['high_score']:
+        change_highscore(user=user, player=player, score=score)
 
     return 1

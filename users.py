@@ -1,10 +1,9 @@
 import json
 
 
-def add_user(player_id: str,all_players: dict, path: str = "users.json") -> dict:
-
+def add_user(player_id: str, all_players: dict, path: str = "users.json") -> dict:
     full_name = input("Scrie numele tau (optional): ")
-    full_name = player_id if full_name == "" or not full_name.isalnum() else full_name
+    full_name = full_name if full_name != "" or not full_name.isalnum() else full_name
     high_score = 0
     passwd = ""
     confirm_passwd = " "
@@ -25,9 +24,6 @@ def add_user(player_id: str,all_players: dict, path: str = "users.json") -> dict
     return new_user
 
 
-
-
-
 def login(path: str = "users.json") -> dict:
     is_new_user = False
     user = input("Logheaza-te: ")
@@ -43,7 +39,6 @@ def login(path: str = "users.json") -> dict:
         else:
             while user not in users:
                 user = input("Logheaza-te, utilizatorul nu exista: ")
-
 
     if not is_new_user:
         passwd = input("Introdu parola: ")
