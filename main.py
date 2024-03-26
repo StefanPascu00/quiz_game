@@ -14,7 +14,7 @@ if __name__ == '__main__':
         for k in current_player.keys():
             user = k
             break
-        print(f"Let's play {current_player[user]['full_name']} !")
+        print(f"\nLet's play {current_player[user]['full_name']} !\n")
 
         game.run_game(user, current_player)
 
