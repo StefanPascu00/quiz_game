@@ -9,7 +9,12 @@
     },
     "jack": {
         "full_name": "jack",
-        "high_score": 0,
+        "high_score": 4,
         "password": "1234"
+    },
+    "stefan": {
+        "full_name": "Stefan Pascu",
+        "high_score": 3,
+        "password": "4321"
     }
 }
