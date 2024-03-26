@@ -28,7 +28,6 @@ def run_game(user: str, player: dict, questions_path: str = "questions.json") ->
     while copy_questions:
         questions_object = random.choice(copy_questions)
 
-        print(questions_object)
         print(questions_object['question'])
 
         for index, answer in enumerate(questions_object['answers']):
@@ -37,10 +36,10 @@ def run_game(user: str, player: dict, questions_path: str = "questions.json") ->
         pick = input("Alege raspunsul corect: ")
         answers = {v: k for k, v in possible_answers.items()}
         if answers[f"{pick}."] == questions_object['correctIndex']:
-            print("Correct answer.")
+            print("\nCorrect answer.\n")
             score += 1
         else:
-            print("Wrong answer.")
+            print("\nWrong answer.\n")
 
         copy_questions.remove(questions_object)
 
